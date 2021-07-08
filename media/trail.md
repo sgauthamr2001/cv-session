@@ -6,7 +6,7 @@ In the session we have come across the Gaussian Filter for blurring an image. If
 
 So try this out on the following image:
 
-![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.brainpickings.org%2F2013%2F07%2F11%2Fdo-scientists-pray-einstein-letter-science-religion%2F&psig=AOvVaw3UErezBpVbJ34Rtzxpl9hv&ust=1625828014313000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCKDBksKn0_ECFQAAAAAdAAAAABAD)
+![](https://github.com/sgauthamr2001/cv-session/blob/main/media/einstein.jpg)
 
 Perform Gaussian Blurring with kernels of size 5x5 and 9x9 and find their difference and see the output. 
 
