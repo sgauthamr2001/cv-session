@@ -19,9 +19,7 @@ target_img = cv2.imread(target_img_name)
 img_hist = conv_to_hsv_hist(img)
 disc = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
 
-# cap = cv2.VideoCapture('matching_cones.mp4')
-# fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-# out = cv2.VideoWriter('output.avi', fourcc, 20.0, (int(cap.get(3)),  int(cap.get(4))))
+cap = cv2.VideoCapture('matching_cones.mp4')
 
 
 def find_barrel(img):
@@ -37,27 +35,19 @@ def find_barrel(img):
 
 
 result = find_barrel(target_img)
-cv2.imwrite('required_image.jpg', result)
-cv2.imshow('lol', result)
-cv2.waitKey()
+# cv2.imwrite('required_image.jpg', result)
+# cv2.imshow('lol', result)
+# cv2.waitKey()
 
-# comments contains the conversion of the required video to 
-# one which just contains the barrels aka output.avi
-# reason it is commented is because it takes too much time to convert
-# and makes it difficult to test
-# also idk why the ouput vid is 3 times the input vid
 
-# while cap.isOpened():
-#     ret, frame = cap.read()
-#     if not ret:
-#         break
-#     result = find_barrel(frame)
-#     out.write(result)
-#     # cv2.imshow('nice', result)
-#     # if cv2.waitKey(1) == ord('q'):
-#     #     break
-#     print("works")
+while cap.isOpened():
+    ret, frame = cap.read()
+    if not ret:
+        break
+    result = find_barrel(frame)
+    cv2.imshow('nice', result)
+    if cv2.waitKey(25) == ord('q'):
+        break
 
-# cap.release()
-# out.release()
+cap.release()
 cv2.destroyAllWindows()
