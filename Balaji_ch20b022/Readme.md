@@ -2,7 +2,12 @@
 ### Link to colab :- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1hoI-_-6hb8gBxU2aS9WxQmz0wjQrJ4fb?usp=sharing)
 
 ## OUTPUT sample :-
- 
+### Question 1
+-----------
+![Track Pic](Photos/res.png)
+![Track Pic](Photos/res1.png)
+### Question-2 
+------------
 ![Track Pic](Photos/7.png)
 
-### Some more outputs are present in Photos
+### Some more outputs are present in Photos Folder
