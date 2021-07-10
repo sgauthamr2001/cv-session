@@ -14,9 +14,9 @@ from google.colab.patches import cv2_imshow
 
 img=cv2.imread('/content/cv2/einstein[1].jpg')
 blur_img1=cv2.GaussianBlur(img,(5,5),0,0)
-blur_img2=cv2.GaussianBlur(img,(9,9),1,1)
+blur_img2=cv2.GaussianBlur(img,(9,9),50,50)
 
 plt.figure(),plt.axis("off"),plt.title("Blur5"),plt.imshow(blur_img1)
 plt.figure(),plt.axis("off"),plt.title("Blur9"),plt.imshow(blur_img2)
-plt.figure(),plt.axis("off"),plt.title("Edges"),plt.imshow(blur_img2-blur_img1)
+plt.figure(),plt.axis("off"),plt.title("Edges"),plt.imshow(blur_img1-blur_img2)
 
