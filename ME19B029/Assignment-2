@@ -63,7 +63,7 @@
         "import numpy as np\n",
         "import cv2 as cv\n",
         "from google.colab.patches import cv2_imshow\n",
-        "obj = cv.imread('Barallel.png')\n",
+        "obj = cv.imread('Barrel.png')\n",
         "hsv = cv.cvtColor(obj,cv.COLOR_BGR2HSV)\n",
         "video=cv2.VideoCapture('vi.mp4')\n",
         "success,target = video.read()\n",
