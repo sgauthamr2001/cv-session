@@ -1,1 +1,1 @@
-File containing photos
+# File containing photos
