@@ -7,6 +7,10 @@ Original file is located at
     https://colab.research.google.com/drive/1n47vgvj5YYFx5WsDA0F_ygWAeFvQ2_fY
 """
 
+# Commented out IPython magic to ensure Python compatibility.
+! git clone 'https://github.com/Akk216/cv-session.git'
+# %cd cv-session
+
 pip install pafy
 
 pip install youtube-dl
@@ -21,7 +25,7 @@ video = pafy.new(url)
 play = video.getbest()
 cap = cv2.VideoCapture(play.url)
 
-roi=cv2.imread('/content/sample_data/img_barrels.jpg')
+roi=cv2.imread('/content/cv-session/Ashwin K Krishna_CH20B017/img_barrels.jpg')
 rimg=cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
 ob=cv2.calcHist([rimg],[0,2],None,[180,256],[0,180,0,256])
 cv2.normalize(ob,ob,0,255,cv2.NORM_MINMAX)
@@ -37,4 +41,6 @@ while True:
   cv2_imshow(result)
 cap.release()
 cv2.destroyAllWinfows()
+
+
 

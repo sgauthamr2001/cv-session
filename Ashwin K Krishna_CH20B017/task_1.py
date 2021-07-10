@@ -7,12 +7,16 @@ Original file is located at
     https://colab.research.google.com/drive/1v6WoJfVOT78AtqbmfKvz8O7Bl7HK2bhU
 """
 
+# Commented out IPython magic to ensure Python compatibility.
+! git clone 'https://github.com/Akk216/cv-session.git'
+# %cd cv-session
+
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 from google.colab.patches import cv2_imshow
 
-img=cv2.imread('/content/cv2/einstein[1].jpg')
+img=cv2.imread('/content/cv-session/media/einstein.jpg')
 blur_img1=cv2.GaussianBlur(img,(5,5),0,0)
 blur_img2=cv2.GaussianBlur(img,(9,9),50,50)
 
