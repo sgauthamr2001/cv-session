@@ -15,7 +15,7 @@ print(target_hsv.shape)
 disc = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5,5))
 
 # Find target in every frame of video
-video = cv2.VideoCapture('Full_video.mp4')
+video = cv2.VideoCapture('Full_video.mp4') # This video isn't there in the folder
 if video.isOpened():
     rval,frame = video.read()
     while rval:
