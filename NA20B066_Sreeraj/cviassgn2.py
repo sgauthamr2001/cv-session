@@ -19,9 +19,7 @@ while True:
     cv2.imshow('frame', hsvVideo)
     if cv2.waitKey(25) == ord('q'):
         break
-# When everything done, release the capture
-#vid.release()
-#cv2.destroyAllWindows()
+
 h,s,v=cv2.split(hsvImage)
 imgHisth = cv2.calcHist([hsvImage], [0], None, [180], [0, 180])
 imgHists = cv2.calcHist([hsvImage], [1], None, [256], [0, 256])
