@@ -1,0 +1,100 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Copy of Untitled2.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "authorship_tag": "ABX9TyOsQFedoA1dOOHDLnKBFAfr"
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "2Apl0ZRjGw9i"
+      },
+      "source": [
+        "## QUESTION 1"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "EPt8Jz-cx7Ws"
+      },
+      "source": [
+        "import cv2\n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "img = cv2.imread('einstein.jpg')\n",
+        "blurred1 = cv2.GaussianBlur(img, (5, 5), 0)\n",
+        "blurred2 = cv2.GaussianBlur(img,(9,9),0)\n",
+        "output = blurred2-blurred1\n",
+        "plt.figure(),plt.imshow(output,cmap='gray'),plt.axis('off'),plt.title('Edge Detection')"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ait4y1EIG7QB"
+      },
+      "source": [
+        "## QUESTION 2"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "mp3NdsrUrgG2"
+      },
+      "source": [
+        "import numpy as np\n",
+        "import cv2 as cv\n",
+        "from google.colab.patches import cv2_imshow\n",
+        "obj = cv.imread('Barrel.png')\n",
+        "hsv = cv.cvtColor(obj,cv.COLOR_BGR2HSV)\n",
+        "video=cv2.VideoCapture('vi.mp4')\n",
+        "success,target = video.read()\n",
+        "hsvt = cv.cvtColor(target,cv.COLOR_BGR2HSV)\n",
+        "# calculating object histogram\n",
+        " objhist = cv.calcHist([hsv],[0, 1], None, [180, 256], [0, 180, 0, 256] )\n",
+        "# normalize histogram and apply backprojection\n",
+        " cv.normalize(objhist,objhist,0,255,cv.NORM_MINMAX)\n",
+        " dst = cv.calcBackProject([hsvt],[0,1],objhist,[0,180,0,256],1)\n",
+        " # Now convolute with circular disc\n",
+        " disc = cv.getStructuringElement(cv.MORPH_ELLIPSE,(5,5))\n",
+        " cv.filter2D(dst,-1,disc,dst)\n",
+        "# threshold and binary AND\n",
+        " ret,thresh = cv.threshold(dst,50,255,0)\n",
+        " final = cv.merge((thresh,thresh,thresh))\n",
+        " result = cv.bitwise_or(target,final)\n",
+        " cv2_imshow(result)"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "te6hx_-e-3qq"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 3,
+      "outputs": []
+    }
+  ]
+}
